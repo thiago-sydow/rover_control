@@ -13,7 +13,7 @@ describe RoverControl do
   end
 
   context 'with invalid boundaries' do
-    it 'receives and processes the commands' do
+    it 'raises an error' do
       str = "5 \n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM"
       expect { RoverControl.process_rovers_instructions(str) }.to raise_error(ArgumentError)
     end
