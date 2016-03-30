@@ -16,6 +16,12 @@ module RoverControl
       raise ArgumentError.new("Position outside Boundaries") unless inside_boundaries?
     end
 
+    def turn(side)
+      rotation_factor = side == 'L' ? -1 : 1
+      pos = CARDINAL_DIRECTIONS.index(@heading) + rotation_factor
+      @heading = CARDINAL_DIRECTIONS[pos % CARDINAL_DIRECTIONS.size]
+    end
+
     def to_s
       "#{@x} #{@y} #{@heading}"
     end
