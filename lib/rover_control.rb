@@ -1,6 +1,7 @@
 require "rover_control/version"
 require "rover_control/rover"
 require "rover_control/position_controller"
+require "rover_control/invalid_command_error"
 
 module RoverControl
   module_function
@@ -17,7 +18,7 @@ module RoverControl
     instruction_lines.each_slice(2) do |rover_instructions|
       rover_position, commands = rover_instructions
       rover = Rover.new(rover_position, x_limit.to_i, y_limit.to_i)
-      # response << rover.process_commands(commands)
+      response << rover.process_commands(commands)
     end
 
     response.join("\n")
