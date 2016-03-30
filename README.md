@@ -36,6 +36,8 @@ puts RoverControl.process_rovers_instructions("5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMR
 => nil
 ```
 
+If anything goes wrong when processing the commands for a particular rover, his output will be 'error'.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
