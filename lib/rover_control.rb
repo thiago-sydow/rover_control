@@ -2,6 +2,7 @@ require "rover_control/version"
 require "rover_control/rover"
 require "rover_control/position_controller"
 require "rover_control/invalid_command_error"
+require "rover_control/out_of_boundaries_error"
 
 module RoverControl
   module_function
