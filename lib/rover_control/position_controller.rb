@@ -8,12 +8,16 @@ module RoverControl
 
       x, y, @heading = rover_position
 
-      @x = x.to_i 
+      @x = x.to_i
       @y = y.to_i
       @x_limit = x_limit
       @y_limit = y_limit
 
       raise ArgumentError.new("Position outside Boundaries") unless inside_boundaries?
+    end
+
+    def to_s
+      "#{@x} #{@y} #{@heading}"
     end
 
     private
