@@ -19,10 +19,18 @@ module RoverControl
     instruction_lines.each_slice(2) do |rover_instructions|
       rover_position, commands = rover_instructions
       rover = Rover.new(rover_position, x_limit.to_i, y_limit.to_i)
-      response << rover.process_commands(commands)
+      response << send_to_rover(rover, commands)
     end
 
     response.join("\n")
+  end
+
+  private
+
+  def self.send_to_rover(rover, commands)
+    rover.process_commands(commands)
+  rescue
+    'error'
   end
 
 end
