@@ -16,4 +16,22 @@ describe RoverControl::PositionController do
     end
   end
 
+  describe '#turn' do
+    let(:controller) { RoverControl::PositionController.new(%w(1 2 N), 5, 5) }
+
+    context 'when turning left' do
+      it 'updates to where rover is heading' do
+        controller.turn 'L'
+        expect(controller.to_s).to eq '1 2 W'
+      end
+    end
+
+    context 'when turning right' do
+      it 'updates to where rover is heading' do
+        controller.turn 'R'
+        expect(controller.to_s).to eq '1 2 E'
+      end
+    end
+  end
+
 end
